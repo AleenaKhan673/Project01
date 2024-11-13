@@ -30,7 +30,7 @@ try{
 router.get('/add',async(req,res,next)=>{
     try{
         res.render('Book/add',{
-            title: 'Add Book'
+            title: 'Ontario Tech Uni Incident Report'
         })
     }
     catch(err)
