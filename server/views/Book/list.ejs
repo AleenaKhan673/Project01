@@ -11,7 +11,7 @@
             </a>
             <table class="table table-bordered table-striped table-hover">
                 <tr class="d-flex">
-                    <th class="text-center col-2">Date of Report</th>
+                    <th class="text-center col-3">Date of Report</th>
                     <th class="text-center col-2">Full Name</th>
                     <th class="text-center col-2">Location</th>
                     <th class="col-4">Incident Description</th>
@@ -19,7 +19,7 @@
                 </tr>
                 <% for(let count=0;count<BookList.length;count++) { %>
                 <tr class="d-flex">
-                    <td class="text-center col-2"><%= BookList[count].Name %></td>
+                    <td class="text-center col-3"><%= BookList[count].Name %></td>
                     <td class="text-center col-2"><%= BookList[count].Author %></td>
                     <td class="text-center col-2"><%=BookList[count].Published%></td>
                     <td class="col-4"><%= BookList[count].Description %> </td>
