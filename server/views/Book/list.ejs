@@ -6,7 +6,7 @@
         <div class="offset-md-1 col-md-10">
             <h1><%= title %></h1>
             <br>
-            <a href="/bookslist/add" class="btn btn-primary" role="button">
+            <a href="/IncidentReports/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add Incident
             </a>
             <table class="table table-bordered table-striped table-hover">
@@ -25,7 +25,7 @@
                     <td class="col-4"><%= BookList[count].Description %> </td>
                     <td class="text-center col-2"><%= BookList[count].Price %></td>
                     <td class="text-center col-1">
-                        <a href="/bookslist/edit/<%= BookList[count]._id%>"
+                        <a href="/IncidentReports/edit/<%= BookList[count]._id%>"
                             class="btn btn-primary btn-sm">
                         <i class="fas fa-pencil-alt"></i>Edit
                     </a>
