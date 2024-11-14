@@ -45,11 +45,11 @@ router.get('/add',async(req,res,next)=>{
 router.post('/add',async(req,res,next)=>{
     try{
         let newIncidentReport = new IncidentReports({
-            "DateofReport":req.body.Name,
-            "FullName":req.body.Author,
-            "Location":req.body.Published,
-            "IncidentDescription":req.body.Description,
-            "Withness":req.body.Price
+            "DateofReport":req.body.DateofReport,
+            "Name":req.body.FullName,
+            "Location":req.body.Location,
+            "IncidentDescription":req.body.IncidentDescription,
+            "Witness":req.body.Witness
         });
         IncidentReports.create(newIncidentReport).then(()=>{
             res.redirect('/IncidentReports');
