@@ -51,7 +51,7 @@ router.post('/add',async(req,res,next)=>{
             "Description":req.body.Description,
             "Price":req.body.Price
         });
-        Book.create(newBook).then(()=>{
+        IncidentReports.create(newBook).then(()=>{
             res.redirect('/bookslist');
         })
     }
@@ -108,7 +108,7 @@ router.post('/edit/:id',async(req,res,next)=>{
 router.get('/delete/:id',async(req,res,next)=>{
     try{
         let id=req.params.id;
-        Book.deleteOne({_id:id}).then(()=>{
+        IncidentReports.deleteOne({_id:id}).then(()=>{
             res.redirect('/bookslist')
         })
     }
