@@ -6,7 +6,7 @@
         <div class="offset-md-1 col-md-10">
             <h1><%= title %></h1>
             <br>
-            <a href="/IncidentReports/add" class="btn btn-primary" role="button">
+            <a href="/IncidentReportsList/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add Incident
             </a>
             <table class="table table-bordered table-striped table-hover">
@@ -25,13 +25,13 @@
                     <td class="col-4"><%= IncidentReportsList[count].IncidentDescription %> </td>
                     <td class="text-center col-2"><%= IncidentReportsList[count].Witness %></td>
                     <td class="text-center col-1">
-                        <a href="/IncidentReports/edit/<%= IncidentReportsList[count]._id%>"
+                        <a href="/IncidentReportsList/edit/<%= IncidentReportsList[count]._id%>"
                             class="btn btn-primary btn-sm">
                         <i class="fas fa-pencil-alt"></i>Edit
                     </a>
                     </td>
                     <td class="text-center col-1">
-                        <a href="/IncidentsReports/delete/<%= IncidentReportsList[count]._id%>"
+                        <a href="/IncidentReportsList/delete/<%= IncidentReportsList[count]._id%>"
                             class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>Delete
                     </a>

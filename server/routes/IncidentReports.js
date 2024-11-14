@@ -13,10 +13,10 @@ Put --> Edit/Update
 /* Read Operation --> Get route for displaying the books list */
 router.get('/',async(req,res,next)=>{
 try{
-    const IncidentList = await IncidentReports.find();
+    const IncidentReportsList = await IncidentReports.find();
     res.render('IncidentReports/list',{
         title:'Incident Reports',
-        IncidentList:IncidentList
+        IncidentReportsList:IncidentReportsList
     })}
     catch(err){
         console.error(err);
@@ -45,7 +45,7 @@ router.post('/add',async(req,res,next)=>{
     try{
         let newIncidentReport = new IncidentReports({
             "DateofReport":req.body.DateofReport,
-            "Name":req.body.FullName,
+            "FullName":req.body.FullName,
             "Location":req.body.Location,
             "IncidentDescription":req.body.IncidentDescription,
             "Witness":req.body.Witness
@@ -93,12 +93,12 @@ router.post('/edit/:id',async(req,res,next)=>{
             "Witness":req.body.Witness
         });
         IncidentReports.findByIdAndUpdate(id,updatedBook).then(()=>{
-            res.redirect('/IncidentReports')
+            res.redirect('/IncidentReports/edit')
         })
     }
     catch(err){
         console.error(err);
-        res.render('IncidentReports/list',{
+        res.render('IncidentReports/edit',{
             error:'Error on the server'
         })
     }
@@ -108,7 +108,7 @@ router.get('/delete/:id',async(req,res,next)=>{
     try{
         let id=req.params.id;
         IncidentReports.deleteOne({_id:id}).then(()=>{
-            res.redirect('/IncidentReports')
+            res.redirect('/IncidentReportsList')
         })
     }
     catch(error){
