@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose');
 // telling my router that I have this model
-let Book = require('../model/book');
-const book = require('../model/book');
+let Book = require('../model/book.js');
+const book = require('../model/book.js');
 let bookController = require('../controllers/book.js')
 /* Get route for the book list - Read Operation */
 /*
