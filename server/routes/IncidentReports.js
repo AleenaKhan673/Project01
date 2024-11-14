@@ -5,7 +5,7 @@ let mongoose = require('mongoose');
 let IncidentReports = require('../model/IncidentReports.js');
 const IncidentReports = require('../model/IncidentReports.js');
 let IncidentReportsController = require('../controllers/IncidentReports.js')
-/* Get route for the book list - Read Operation */
+/* Get route for the IncidentReports- Read Operation */
 /*
 GET,
 Post,
@@ -14,9 +14,9 @@ Put --> Edit/Update
 /* Read Operation --> Get route for displaying the books list */
 router.get('/',async(req,res,next)=>{
 try{
-    const BookList = await Book.find();
+    const BookList = await IncidentReports.find();
     res.render('Book/list',{
-        title:'Books',
+        title:'Incident Reports',
         BookList:BookList
     })}
     catch(err){
