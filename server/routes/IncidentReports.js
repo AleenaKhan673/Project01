@@ -3,7 +3,6 @@ var router = express.Router();
 let mongoose = require('mongoose');
 // telling my router that I have this model
 let IncidentReports = require('../model/IncidentReports.js');
-const IncidentReports = require('../model/IncidentReports.js');
 let IncidentReportsController = require('../controllers/IncidentReports.js')
 /* Get route for the IncidentReports- Read Operation */
 /*
