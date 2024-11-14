@@ -17,21 +17,21 @@
                     <th class="col-4">Incident Description</th>
                     <th class="text-center col-2">Witness</th>
                 </tr>
-                <% for(let count=0;count<BookList.length;count++) { %>
+                <% for(let count=0;count<IncidentReportsList.length;count++) { %>
                 <tr class="d-flex">
-                    <td class="text-center col-3"><%= BookList[count].DateofReportS %></td>
-                    <td class="text-center col-2"><%= BookList[count].FullName %></td>
-                    <td class="text-center col-2"><%=BookList[count].Location%></td>
-                    <td class="col-4"><%= BookList[count].IncidentDescription %> </td>
-                    <td class="text-center col-2"><%= BookList[count].Withness %></td>
+                    <td class="text-center col-3"><%= IncidentReportsList[count].DateofReportS %></td>
+                    <td class="text-center col-2"><%= IncidentReportsList[count].FullName %></td>
+                    <td class="text-center col-2"><%=IncidentReportsList[count].Location%></td>
+                    <td class="col-4"><%= IncidentReportsList[count].IncidentDescription %> </td>
+                    <td class="text-center col-2"><%= IncidentReportsList[count].Withness %></td>
                     <td class="text-center col-1">
-                        <a href="/IncidentReports/edit/<%= BookList[count]._id%>"
+                        <a href="/IncidentReports/edit/<%= IncidentReportsList[count]._id%>"
                             class="btn btn-primary btn-sm">
                         <i class="fas fa-pencil-alt"></i>Edit
                     </a>
                     </td>
                     <td class="text-center col-1">
-                        <a href="/IncidentsReports/delete/<%= BookList[count]._id%>"
+                        <a href="/IncidentsReports/delete/<%= IncidentReportsList[count]._id%>"
                             class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>Delete
                     </a>
