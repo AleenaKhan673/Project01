@@ -87,11 +87,11 @@ router.post('/edit/:id',async(req,res,next)=>{
         let id=req.params.id;
         let updatedIncidentReports = IncidentReports({
             "_id":id,
-            "DateofReport":req.body.Name,
-            "FullName":req.body.Author,
-            "Location":req.body.Published,
-            "IncidentDescription":req.body.Description,
-            "Witness":req.body.Price
+            "DateofReport":req.body.DateofReport,
+            "FullName":req.body.FullName,
+            "Location":req.body.Location,
+            "IncidentDescription":req.body.IncidentDescription,
+            "Witness":req.body.Witness
         });
         IncidentReports.findByIdAndUpdate(id,updatedBook).then(()=>{
             res.redirect('/IncidentReports')
