@@ -45,11 +45,11 @@ router.get('/add',async(req,res,next)=>{
 router.post('/add',async(req,res,next)=>{
     try{
         let newIncidentReport = new IncidentReports({
-            "Name":req.body.Name,
-            "Author":req.body.Author,
-            "Published":req.body.Published,
-            "Description":req.body.Description,
-            "Price":req.body.Price
+            "DateofReport":req.body.Name,
+            "FullName":req.body.Author,
+            "Location":req.body.Published,
+            "IncidentDescription":req.body.Description,
+            "Withness":req.body.Price
         });
         IncidentReports.create(newIncidentReport).then(()=>{
             res.redirect('/IncidentReports');
@@ -87,11 +87,11 @@ router.post('/edit/:id',async(req,res,next)=>{
         let id=req.params.id;
         let updatedIncidentReports = IncidentReports({
             "_id":id,
-            "Name":req.body.Name,
-            "Author":req.body.Author,
-            "Published":req.body.Published,
-            "Description":req.body.Description,
-            "Price":req.body.Price
+            "DateofReport":req.body.Name,
+            "FullName":req.body.Author,
+            "Location":req.body.Published,
+            "IncidentDescription":req.body.Description,
+            "Withness":req.body.Price
         });
         IncidentReports.findByIdAndUpdate(id,updatedBook).then(()=>{
             res.redirect('/IncidentReports')

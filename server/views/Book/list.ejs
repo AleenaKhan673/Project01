@@ -15,15 +15,15 @@
                     <th class="text-center col-2">Full Name</th>
                     <th class="text-center col-2">Location</th>
                     <th class="col-4">Incident Description</th>
-                    <th class="text-center col-2">Witness?</th>
+                    <th class="text-center col-2">Witness</th>
                 </tr>
                 <% for(let count=0;count<BookList.length;count++) { %>
                 <tr class="d-flex">
-                    <td class="text-center col-3"><%= BookList[count].Name %></td>
-                    <td class="text-center col-2"><%= BookList[count].Author %></td>
-                    <td class="text-center col-2"><%=BookList[count].Published%></td>
-                    <td class="col-4"><%= BookList[count].Description %> </td>
-                    <td class="text-center col-2"><%= BookList[count].Price %></td>
+                    <td class="text-center col-3"><%= BookList[count].DateofReportS %></td>
+                    <td class="text-center col-2"><%= BookList[count].FullName %></td>
+                    <td class="text-center col-2"><%=BookList[count].Location%></td>
+                    <td class="col-4"><%= BookList[count].IncidentDescription %> </td>
+                    <td class="text-center col-2"><%= BookList[count].Withness %></td>
                     <td class="text-center col-1">
                         <a href="/IncidentReports/edit/<%= BookList[count]._id%>"
                             class="btn btn-primary btn-sm">
