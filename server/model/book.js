@@ -3,11 +3,11 @@
 const mongoose = require("mongoose");
 
 let bookModel = mongoose.Schema({
-    DateofRepor: String,
+    DateofReport: String,
     FullName: String,
     Location: String,
     IncidentDescription: String,
-    Withness: String
+    Witness: String
 },
 {
     collection:"IncidentReports"

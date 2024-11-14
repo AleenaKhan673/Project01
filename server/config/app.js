@@ -7,7 +7,7 @@ let logger = require('morgan');
 let app = express();
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let bookRouter = require('../routes/book');
+let IncidentReportRouter = require('../routes/IncidentReports');
 
 
 // view engine setup
@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/IncidentReportsList',bookRouter);
+app.use('/IncidentReportsList',IncidentReportsRouter);
 // /project --> projectrouter
 // /contactus --> contactus
 

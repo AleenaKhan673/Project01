@@ -91,7 +91,7 @@ router.post('/edit/:id',async(req,res,next)=>{
             "FullName":req.body.Author,
             "Location":req.body.Published,
             "IncidentDescription":req.body.Description,
-            "Withness":req.body.Price
+            "Witness":req.body.Price
         });
         IncidentReports.findByIdAndUpdate(id,updatedBook).then(()=>{
             res.redirect('/IncidentReports')
