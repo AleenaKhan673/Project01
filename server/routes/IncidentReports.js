@@ -14,14 +14,14 @@ Put --> Edit/Update
 /* Read Operation --> Get route for displaying the books list */
 router.get('/',async(req,res,next)=>{
 try{
-    const BookList = await IncidentReports.find();
-    res.render('Book/list',{
+    const IncidentList = await IncidentReports.find();
+    res.render('IncidentReports/list',{
         title:'Incident Reports',
-        BookList:BookList
+        IncidentList:IncidentList
     })}
     catch(err){
         console.error(err);
-        res.render('Book/list',{
+        res.render('IncidentReports/list',{
             error:'Error on the server'
         })
     }
@@ -29,14 +29,14 @@ try{
 /* Create Operation --> Get route for displaying me the Add Page */
 router.get('/add',async(req,res,next)=>{
     try{
-        res.render('Book/add',{
+        res.render('IncidentReports/add',{
             title: 'Ontario Tech Uni Incident Report'
         })
     }
     catch(err)
     {
         console.error(err);
-        res.render('Book/list',{
+        res.render('IncidentReports/list',{
             error:'Error on the server'
         })
     }
@@ -44,21 +44,21 @@ router.get('/add',async(req,res,next)=>{
 /* Create Operation --> Post route for processing the Add Page */
 router.post('/add',async(req,res,next)=>{
     try{
-        let newBook = Book({
+        let newIncidentReport = new IncidentReports({
             "Name":req.body.Name,
             "Author":req.body.Author,
             "Published":req.body.Published,
             "Description":req.body.Description,
             "Price":req.body.Price
         });
-        IncidentReports.create(newBook).then(()=>{
-            res.redirect('/bookslist');
+        IncidentReports.create(newIncidentReport).then(()=>{
+            res.redirect('/IncidentReports');
         })
     }
     catch(err)
     {
         console.error(err);
-        res.render('Book/list',{
+        res.render('IncidentReports/list',{
             error:'Error on the server'
         })
     }
@@ -67,11 +67,11 @@ router.post('/add',async(req,res,next)=>{
 router.get('/edit/:id',async(req,res,next)=>{
     try{
         const id = req.params.id;
-        const bookToEdit= await Book.findById(id);
-        res.render('Book/edit',
+        const reportToEdit= await IncidentReports.findById(id);
+        res.render('IncidentReports/edit',
             {
-                title:'Edit Book',
-                Book:bookToEdit
+                title:'Edit Incident Report',
+                IncidentReports: reportToEdit
             }
         )
     }
@@ -85,7 +85,7 @@ router.get('/edit/:id',async(req,res,next)=>{
 router.post('/edit/:id',async(req,res,next)=>{
     try{
         let id=req.params.id;
-        let updatedBook = Book({
+        let updatedIncidentReports = IncidentReports({
             "_id":id,
             "Name":req.body.Name,
             "Author":req.body.Author,
@@ -93,13 +93,13 @@ router.post('/edit/:id',async(req,res,next)=>{
             "Description":req.body.Description,
             "Price":req.body.Price
         });
-        Book.findByIdAndUpdate(id,updatedBook).then(()=>{
-            res.redirect('/bookslist')
+        IncidentReports.findByIdAndUpdate(id,updatedBook).then(()=>{
+            res.redirect('/IncidentReports')
         })
     }
     catch(err){
         console.error(err);
-        res.render('Book/list',{
+        res.render('IncidentReports/list',{
             error:'Error on the server'
         })
     }
@@ -109,12 +109,12 @@ router.get('/delete/:id',async(req,res,next)=>{
     try{
         let id=req.params.id;
         IncidentReports.deleteOne({_id:id}).then(()=>{
-            res.redirect('/bookslist')
+            res.redirect('/IncidentReports')
         })
     }
     catch(error){
         console.error(err);
-        res.render('Book/list',{
+        res.render('IncidentReports/list',{
             error:'Error on the server'
         })
     }
