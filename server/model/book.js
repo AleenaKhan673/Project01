@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 
-let bookModel = mongoose.Schema({
+let IncidentReportsModel = mongoose.Schema({
     DateofReport: String,
     FullName: String,
     Location: String,
