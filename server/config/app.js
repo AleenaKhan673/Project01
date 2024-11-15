@@ -5,17 +5,25 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
 let app = express();
+let cors = require('cors')
+//create a user model instance
+let userModel = require('../model/User');
+let User = userModel.User;
+let session = require('express-session')
+let passport = require('passport')
+let passportLocal = require('passport-local')
+let flash = require('connect-flash')
+passport.use(User.createStrategy());
+let localStrategy = passportLocal.Strategy;
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let IncidentReportRouter = require('../routes/IncidentReports');
 
 
-// view engine setup
-app.set('views', path.join(__dirname, '../views'));
-app.set('view engine', 'ejs');
 // getting-started.js
-const mongoose = require('mongoose');
+let mongoose = require('mongoose');
 let DB = require('./db');
+
 // point mongoose to the DB URI
 mongoose.connect(DB.URI);
 let mongoDB = mongoose.connection;
@@ -33,6 +41,25 @@ async function main() {
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }*/
 
+// view engine setup
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'ejs');
+
+//set-up session here
+app.use(session({
+  secret: "SomeSecret",
+  saveUnintialized:false,
+  resave:false
+}))
+//initialize the flash
+app.use(flash())
+//searlize and deserialize the user information 
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+//initialize the passport
+app.use(passport.initialize());
+app.use(passport.session());
+//engine setup
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
