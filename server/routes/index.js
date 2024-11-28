@@ -41,6 +41,8 @@ router.get('/contactus', function(req, res, next) {
     title: 'Contact us',
     displayName:req.user ? req.user.displayName:'' });
 });
+
+
 // get and post router of login.ejs
 router.get('/login',function(req,res,next){
   if(!req.user)

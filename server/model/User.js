@@ -44,6 +44,8 @@ let User = mongoose.Schema({
 {
     collection: "user"
 })
+// config options for user model.
+
 let options = ({MissingPasswordError:
     'Wrong/Missing Password'}) 
 User.plugin(passportLocalMongoose, options),

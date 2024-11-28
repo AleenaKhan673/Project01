@@ -3,13 +3,13 @@
 <main class="container">
     <!--Message Area-->
     <% if(message.length > 0) {%>
-        <div class="alter alter-danger">
+        <div class="alert alter-danger">
             <%= message %>
         </div>    
     <%} %>
     <div class="row">
         <div class="offset-md-4 col-md-4">
-            <h1>Please Register</h1>
+            <h1>Please Login</h1>
             <form method="post" autocomplete="off">
                 <fieldset class="form-group">
                     <!--username,password,displayName,email-->
@@ -32,9 +32,9 @@
                 <fieldset class="form-group text-right">
                     <input type="submit" class="btn btn-sucess"
                     value="Login">
-                    <a href="/">
+                    <a href="/"></a>
                     <input type="button" class="btn btn-warning"
-                    value="Cancel"></a>
+                    value="Cancel">
                 </fieldset>
             </form>
         </div>

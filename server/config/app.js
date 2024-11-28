@@ -3,26 +3,23 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-
 let app = express();
-let cors = require('cors')
 //create a user model instance
-let userModel = require('../model/User');
+let userModel = require('../model/user');
 let User = userModel.User;
-let session = require('express-session')
-let passport = require('passport')
-let passportLocal = require('passport-local')
-let flash = require('connect-flash')
-passport.use(User.createStrategy());
-let localStrategy = passportLocal.Strategy;
-let indexRouter = require('../routes/index');
-let usersRouter = require('../routes/users');
-let incidentRouter = require('../routes/incident');
-
-
 // getting-started.js
 let mongoose = require('mongoose');
 let DB = require('./db');
+
+let session = require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+passport.use(User.createStrategy());
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
+let indexRouter = require('../routes/index');
+let usersRouter = require('../routes/users');
+let incidentRouter = require('../routes/incident');
 
 // point mongoose to the DB URI
 mongoose.connect(DB.URI);
@@ -31,7 +28,7 @@ mongoDB.on('error',console.error.bind(console,'Connection Error'));
 mongoDB.once('open',()=>{
   console.log("Connected with the MongoDB")
 });
-mongoose.connect(DB.URI,{useNewURIParser:true,useUnifiedTopology:true})
+mongoose.connect(DB.URI,{useNewURIParser:true,useUnifiedTopology:true});
 /* main().catch(err => console.log(err));
 
 async function main() {
@@ -52,7 +49,7 @@ app.use(session({
   resave:false
 }))
 //initialize the flash
-app.use(flash())
+app.use(flash());
 //searlize and deserialize the user information 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

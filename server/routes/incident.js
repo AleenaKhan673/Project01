@@ -9,7 +9,7 @@ function requireAuth(req,res,next)
 
  {if(!req.isAuthenticated())
     {
-        return res.redirect('/login')
+        return res.redirect('/login');
     }
     next();
 }
@@ -21,7 +21,7 @@ Post,
 Put --> Edit/Update
 */
 /* Read Operation --> Get route for displaying the books list */
-router.get('/',async(req,res,next)=>{
+router.get('/',requireAuth, async(req,res,next)=>{
 try{
     const incidentlist = await incident.find();
     res.render('incident/list',{
@@ -37,7 +37,7 @@ try{
     }
     });
 /* Create Operation --> Get route for displaying me the Add Page */
-router.get('/add',async(req,res,next)=>{
+router.get('/add',requireAuth, async(req,res,next)=>{
     try{
         res.render('incident/add',{
             title: 'Add Incident',
