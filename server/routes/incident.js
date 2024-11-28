@@ -21,7 +21,7 @@ Post,
 Put --> Edit/Update
 */
 /* Read Operation --> Get route for displaying the books list */
-router.get('/',requireAuth, async(req,res,next)=>{
+router.get('/', async(req,res,next)=>{
 try{
     const incidentlist = await incident.find();
     res.render('incident/list',{
@@ -37,7 +37,7 @@ try{
     }
     });
 /* Create Operation --> Get route for displaying me the Add Page */
-router.get('/add',requireAuth, async(req,res,next)=>{
+router.get('/add', async(req,res,next)=>{
     try{
         res.render('incident/add',{
             title: 'Add Incident',
@@ -53,7 +53,7 @@ router.get('/add',requireAuth, async(req,res,next)=>{
     }
 });
 /* Create Operation --> Post route for processing the Add Page */
-router.post('/add',requireAuth, async(req,res,next)=>{
+router.post('/add', async(req,res,next)=>{
     try{
         let newincident = new incident({
             "DateofReport":req.body.DateofReport,
@@ -75,7 +75,7 @@ router.post('/add',requireAuth, async(req,res,next)=>{
     }
 });
 /* Update Operation --> Get route for displaying me the Edit Page */
-router.get('/edit/:id',requireAuth, async(req,res,next)=>{
+router.get('/edit/:id', async(req,res,next)=>{
     try{
         const id = req.params.id;
         const reportToEdit= await incident.findById(id);
@@ -94,7 +94,7 @@ router.get('/edit/:id',requireAuth, async(req,res,next)=>{
     }
 });
 /* Update Operation --> Post route for processing the Edit Page */ 
-router.post('/edit/:id',requireAuth, async(req,res,next)=>{
+router.post('/edit/:id', async(req,res,next)=>{
     try{
         let id=req.params.id;
         let updatedincident = ({
@@ -117,7 +117,7 @@ router.post('/edit/:id',requireAuth, async(req,res,next)=>{
     }
 });
 /* Delete Operation --> Get route to perform Delete Operation */
-router.get('/delete/:id',requireAuth, async(req,res,next)=>{
+router.get('/delete/:id', async(req,res,next)=>{
     try{
         let id=req.params.id;
         incident.deleteOne({_id:id}).then(()=>{
