@@ -29,6 +29,14 @@ mongoDB.once('open',()=>{
   console.log("Connected with the MongoDB")
 });
 mongoose.connect(DB.URI,{useNewURIParser:true,useUnifiedTopology:true});
+
+//set-up session here
+app.use(session({
+  secret: "SomeSecret",
+  saveUnintialized:false,
+  resave:false
+}))
+
 /* main().catch(err => console.log(err));
 
 async function main() {
@@ -42,12 +50,6 @@ async function main() {
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
-//set-up session here
-app.use(session({
-  secret: "SomeSecret",
-  saveUnintialized:false,
-  resave:false
-}))
 //initialize the flash
 app.use(flash());
 //searlize and deserialize the user information 
