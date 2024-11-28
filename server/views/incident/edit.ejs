@@ -8,23 +8,23 @@
             <form class="form" method="POST">
                 <div class="form-group">
                     <label for="reportTextField">Date of Report</label>
-                    <input type="text" class="form-control" id="reportTextField" placeholder="Enter the Date of Report" name="DateofReport" value="<%= IncidentReports.DateofReport %>" required>
+                    <input type="text" class="form-control" id="reportTextField" placeholder="Enter the Date of Report" name="DateofReport" value="<%= incident.DateofReport %>" required>
                 </div>
                 <div class="form-group">
                     <label for="nameTextField">Full Name</label>
-                    <input type="text" class="form-control" id="nameTextField" placeholder="Enter Full Name" name="FullName" value="<%= IncidentReports.FullName %>" required>
+                    <input type="text" class="form-control" id="nameTextField" placeholder="Enter Full Name" name="FullName" value="<%= incident.FullName %>" required>
                 </div>
                 <div class="form-group">
                     <label for="locationTextField">Location</label>
-                    <input type="text" class="form-control" id="locationTextField" placeholder="Enter the Location of Incident" name="Location" value="<%= IncidentReports.Location %>" required>
+                    <input type="text" class="form-control" id="locationTextField" placeholder="Enter the Location of Incident" name="Location" value="<%= incident.Location %>" required>
                 </div>
                 <div class="form-group">
                     <label for="descriptionTextArea">Incident Description</label>
-                    <textarea type="text" class="form-control" id="descriptionTextArea"  placeholder="Enter the Incident Description" name="IncidentDescription" required><%= IncidentReports.IncidentDescription %></textarea>
+                    <textarea type="text" class="form-control" id="descriptionTextArea"  placeholder="Enter the Incident Description" name="IncidentDescription" required><%= incident.Description %></textarea>
                 </div>
                 <div class="form-group">
                     <label for="witnessTextField">Witness?</label>
-                    <input type="text" class="form-control" id="witnessTextField" placeholder="Witness?" name="Witness" value="<%= IncidentReports.Witness %>" required>
+                    <input type="text" class="form-control" id="witnessTextField" placeholder="Witness?" name="Witness" value="<%= incident.Witness %>" required>
                 </div>
                 <button class="btn btn-primary" type="submit">Submit
                 <i class="fas fa-edit"></i></button>  
