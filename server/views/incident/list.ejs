@@ -1,12 +1,12 @@
 <%- include ../Partials/header.ejs%>
 <%- include ../Partials/main_nav.ejs%>
-<!--Book Database-->
+<!--incident report Database-->
 <main class="container">
     <div class="row">
         <div class="offset-md-1 col-md-10">
             <h1><%= title %></h1>
         <% if(typeof displayName == 'string' && displayName) {%>
-            <a href="/IncidentReports/add" class="btn btn-primary" role="button">
+            <a href="/incident/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add Incident
             </a>
             <br>
@@ -29,31 +29,31 @@
                     <th class="text-center col-2">Witness</th>
                 <% } %>
                 </tr>
-                <% for(let count=0;count<IncidentReportsList.length;count++) { %>
+                <% for(let count=0;count<incidentlist.length;count++) { %>
                 <tr class="d-flex">
                 <% if(typeof displayName == 'string' && displayName) {%>
-                    <td class="text-center col-3"><%= IncidentReportsList[count].DateofReport %></td>
-                    <td class="text-center col-2"><%= IncidentReportsList[count].FullName %></td>
-                    <td class="text-center col-2"><%=IncidentReportsList[count].Location %></td>
-                    <td class="col-4"><%= IncidentReportsList[count].IncidentDescription %> </td>
-                    <td class="text-center col-2"><%= IncidentReportsList[count].Witness %></td>
+                    <td class="text-center col-3"><%= incidentlist[count].DateofReport %></td>
+                    <td class="text-center col-2"><%= incidentlist[count].FullName %></td>
+                    <td class="text-center col-2"><%=incidentlist[count].Location %></td>
+                    <td class="col-4"><%= incidentlist[count].IncidentDescription %> </td>
+                    <td class="text-center col-2"><%= incidentlist[count].Witness %></td>
                     <td class="text-center col-1">
                     <% if(typeof displayName == 'string' && displayName) {%>
-                        <a href="/IncidentReportsList/edit/<%= IncidentReportsList[count]._id%>"
+                        <a href="/incident/edit/<%= incidentlist[count]._id%>"
                             class="btn btn-primary btn-sm">
                         <i class="fas fa-pencil-alt"></i>Edit
                     </a>
                     </td>
                     <td class="text-center col-1">
-                        <a href="/IncidentReportsList/delete/<%= IncidentReportsList[count]._id%>"
+                        <a href="/incident/delete/<%= incidentlist[count]._id%>"
                             class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>Delete
                     <% } else { %>
-                        <td class="text-center col-3"><%= IncidentReportsList[count].DateofReport %></td>
-                        <td class="text-center col-2"><%= IncidentReportsList[count].FullName %></td>
-                        <td class="text-center col-2"><%=IncidentReportsList[count].Location %></td>
-                        <td class="col-4"><%= IncidentReportsList[count].IncidentDescription %> </td>
-                        <td class="text-center col-2"><%= IncidentReportsList[count].Witness %></td>
+                        <td class="text-center col-3"><%= incidentlist[count].DateofReport %></td>
+                        <td class="text-center col-2"><%= incidentlist[count].FullName %></td>
+                        <td class="text-center col-2"><%=incidentlist[count].Location %></td>
+                        <td class="col-4"><%= incidentlist[count].IncidentDescription %> </td>
+                        <td class="text-center col-2"><%= incidentlist[count].Witness %></td>
                         <% } %>
                     </a>
                     </td>

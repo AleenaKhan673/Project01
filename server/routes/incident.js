@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose');
 // telling my router that I have this model
-let incident = require('../model/incident.js');
-const cart= require('../model/incident.js');
+let Incident = require('../model/incident.js');
+const incident= require('../model/incident.js');
 let incidentController = require('../controllers/incident.js')
 function requireAuth(req,res,next)
 
@@ -27,7 +27,7 @@ try{
     res.render('incident/list',{
         title:'Incident Reports',
         displayName:req.user ? req.user.displayName:'',
-        incidentList:incidentList
+        incidentlist:incidentlist
     })}
     catch(err){
         console.error(err);

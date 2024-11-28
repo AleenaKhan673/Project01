@@ -3,7 +3,6 @@ var router = express.Router();
 const passport = require('passport')
 let DB = require('../config/db')
 let incidentModel = require('../model/incident')
-let incident = incidentModel.incident;
 
 /* GET index page. */
 router.get('/', function(req, res, next) {
@@ -24,7 +23,7 @@ router.get('/aboutus', function(req, res, next) {
     displayName:req.user ? req.user.displayName:'' });
 });
 /* GET Product page. */
-router.get('/product', function(req, res, next) {
+router.get('/products', function(req, res, next) {
   res.render('index', { 
     title: 'Product',
     displayName:req.user ? req.user.displayName:''
