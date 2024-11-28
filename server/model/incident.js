@@ -12,4 +12,4 @@ let IncidentReportsModel = mongoose.Schema({
 {
     collection:"IncidentReports"
 });
-module.exports =mongoose.model('IncidentReports', IncidentReportsModel);
+module.exports =mongoose.model('incident', incidentModel);

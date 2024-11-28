@@ -4,6 +4,15 @@ let mongoose = require('mongoose');
 // telling my router that I have this model
 let IncidentReports = require('../model/IncidentReports.js');
 let IncidentReportsController = require('../controllers/IncidentReports.js')
+function requireAuth(req,res,next)
+
+ {if(!req.isAuthenticated())
+    {
+        return res.redirect('/login')
+    }
+    next();
+}
+
 /* Get route for the IncidentReports- Read Operation */
 /*
 GET,
@@ -16,6 +25,7 @@ try{
     const IncidentReportsList = await IncidentReports.find();
     res.render('IncidentReports/list',{
         title:'Incident Reports',
+        displayName:req.user ? req.user.displayName:'',
         IncidentReportsList:IncidentReportsList
     })}
     catch(err){
@@ -29,7 +39,8 @@ try{
 router.get('/add',async(req,res,next)=>{
     try{
         res.render('IncidentReports/add',{
-            title: 'Ontario Tech Uni Incident Report'
+            title: 'Ontario Tech Uni Incident Report',
+            displayName:req.user ? req.user.displayName:'',
         })
     }
     catch(err)
@@ -70,6 +81,7 @@ router.get('/edit/:id',async(req,res,next)=>{
         res.render('IncidentReports/edit',
             {
                 title:'Edit Incident Report',
+                displayName:req.user ? req.user.displayName:'',
                 IncidentReports: reportToEdit
             }
         )

@@ -5,26 +5,40 @@
     <div class="row">
         <div class="offset-md-1 col-md-10">
             <h1><%= title %></h1>
-            <br>
-            <a href="/IncidentReportsList/add" class="btn btn-primary" role="button">
+        <% if(typeof displayName == 'string' && displayName) {%>
+            <a href="/IncidentReports/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add Incident
             </a>
+            <br>
+            <% } %>
             <table class="table table-bordered table-striped table-hover">
                 <tr class="d-flex">
+                    <% if(typeof displayName == 'string' && displayName) {%>
                     <th class="text-center col-3">Date of Report</th>
                     <th class="text-center col-2">Full Name</th>
                     <th class="text-center col-2">Location</th>
                     <th class="col-4">Incident Description</th>
                     <th class="text-center col-2">Witness</th>
+                    <th class="text-center col-1"></th>
+                    <th class="text-center col-1"></th>
+                <% } else { %>
+                    <th class="text-center col-3">Date of Report</th>
+                    <th class="text-center col-2">Full Name</th>
+                    <th class="text-center col-2">Location</th>
+                    <th class="col-4">Incident Description</th>
+                    <th class="text-center col-2">Witness</th>
+                <% } %>
                 </tr>
                 <% for(let count=0;count<IncidentReportsList.length;count++) { %>
                 <tr class="d-flex">
+                <% if(typeof displayName == 'string' && displayName) {%>
                     <td class="text-center col-3"><%= IncidentReportsList[count].DateofReport %></td>
                     <td class="text-center col-2"><%= IncidentReportsList[count].FullName %></td>
                     <td class="text-center col-2"><%=IncidentReportsList[count].Location %></td>
                     <td class="col-4"><%= IncidentReportsList[count].IncidentDescription %> </td>
                     <td class="text-center col-2"><%= IncidentReportsList[count].Witness %></td>
                     <td class="text-center col-1">
+                    <% if(typeof displayName == 'string' && displayName) {%>
                         <a href="/IncidentReportsList/edit/<%= IncidentReportsList[count]._id%>"
                             class="btn btn-primary btn-sm">
                         <i class="fas fa-pencil-alt"></i>Edit
@@ -34,8 +48,16 @@
                         <a href="/IncidentReportsList/delete/<%= IncidentReportsList[count]._id%>"
                             class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>Delete
+                    <% } else { %>
+                        <td class="text-center col-3"><%= IncidentReportsList[count].DateofReport %></td>
+                        <td class="text-center col-2"><%= IncidentReportsList[count].FullName %></td>
+                        <td class="text-center col-2"><%=IncidentReportsList[count].Location %></td>
+                        <td class="col-4"><%= IncidentReportsList[count].IncidentDescription %> </td>
+                        <td class="text-center col-2"><%= IncidentReportsList[count].Witness %></td>
+                        <% } %>
                     </a>
                     </td>
+                <% } %>
                 </tr>    
                     <%} %>
             </table>
