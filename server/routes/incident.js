@@ -23,7 +23,7 @@ Put --> Edit/Update
 /* Read Operation --> Get route for displaying the books list */
 router.get('/',async(req,res,next)=>{
 try{
-    const incidentList = await incident.find();
+    const incidentlist = await incident.find();
     res.render('incident/list',{
         title:'Incident Reports',
         displayName:req.user ? req.user.displayName:'',
@@ -40,7 +40,7 @@ try{
 router.get('/add',async(req,res,next)=>{
     try{
         res.render('incident/add',{
-            title: 'Ontario Tech Uni Incident Report',
+            title: 'Add Incident',
             displayName:req.user ? req.user.displayName:'',
         })
     }
@@ -81,7 +81,7 @@ router.get('/edit/:id',async(req,res,next)=>{
         const reportToEdit= await incident.findById(id);
         res.render('incident/edit',
             {
-                title:'Edit Incident Report',
+                title:'Edit',
                 displayName:req.user ? req.user.displayName:'',
                 incident: reportToEdit
             }
@@ -97,7 +97,7 @@ router.get('/edit/:id',async(req,res,next)=>{
 router.post('/edit/:id',async(req,res,next)=>{
     try{
         let id=req.params.id;
-        let updatedincident = incident({
+        let updatedincident = ({
             "_id":id,
             "DateofReport":req.body.DateofReport,
             "FullName":req.body.FullName,
@@ -105,13 +105,13 @@ router.post('/edit/:id',async(req,res,next)=>{
             "IncidentDescription":req.body.IncidentDescription,
             "Witness":req.body.Witness
         });
-        incident.findByIdAndUpdate(id,updatedBook).then(()=>{
-            res.redirect('/incident/edit')
+        incident.findByIdAndUpdate(id,updatedincident).then(()=>{
+            res.redirect('/incident')
         })
     }
     catch(err){
         console.error(err);
-        res.render('incident/edit',{
+        res.render('incident/list',{
             error:'Error on the server'
         })
     }
