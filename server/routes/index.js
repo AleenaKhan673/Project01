@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 const passport = require('passport')
 let DB = require('../config/db')
-let userModel = require('../model/User')
-let User = userModel.User;
+let incidentModel = require('../model/incident')
+let incident = incidentModel.incident;
 
 /* GET index page. */
 router.get('/', function(req, res, next) {
@@ -72,7 +72,7 @@ router.post('/login',function(req,res,next){
       {
         return next(err)
       }
-      return res.redirect('bookslist');
+      return res.redirect('incident');
     })
   })(req,res,next)
 })
@@ -118,7 +118,7 @@ router.post('/register',function(req,res,next){
     }
     else{
       return passport.authenticate('local')(req,res,()=>{
-        res.redirect('/bookslist')
+        res.redirect('/incidentlist')
       })
     }
   })

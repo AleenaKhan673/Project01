@@ -17,7 +17,7 @@ passport.use(User.createStrategy());
 let localStrategy = passportLocal.Strategy;
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let IncidentReportRouter = require('../routes/incident');
+let incidentRouter = require('../routes/incident');
 
 
 // getting-started.js
@@ -69,7 +69,7 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/incident',incidentRouter);
+app.use('/incident', incidentRouter);
 // /project --> projectrouter
 // /contactus --> contactus
 
