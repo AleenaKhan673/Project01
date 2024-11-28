@@ -7,6 +7,12 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
+    "@types/express": "^5.0.0",
+    "@types/express-session": "^1.18.1",
+    "@types/mongoose": "^5.11.96",
+    "@types/passport": "^1.0.17",
+    "@types/passport-local": "^1.0.38",
+    "@types/passport-local-mongoose": "^6.1.5",
     "bootstrap": "^5.3.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
