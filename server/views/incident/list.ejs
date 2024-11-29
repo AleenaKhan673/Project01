@@ -11,6 +11,7 @@
             </a>
             <br>
             <% } %>
+            <br>
             <table class="table table-bordered table-striped table-hover">
                 <tr class="d-flex">
                     <% if(typeof displayName == 'string' && displayName) {%>
@@ -24,19 +25,19 @@
                 <% } else { %>
                     <th class="text-center col-3">Date of Report</th>
                     <th class="text-center col-2">Full Name</th>
-                    <th class="text-center col-2">Location</th>
-                    <th class="col-4">Incident Description</th>
+                    <th class="text-center col-1">Location</th>
+                    <th class="text-center col-5">Incident Description</th>
                     <th class="text-center col-2">Witness</th>
                 <% } %>
                 </tr>
                 <% for(let count=0;count<incidentlist.length;count++) { %>
                 <tr class="d-flex">
                 <% if(typeof displayName == 'string' && displayName) {%>
-                    <td class="text-center col-3"><%= incidentlist[count].DateofReport %></td>
+                    <td class="text-center col-2"><%= incidentlist[count].DateofReport %></td>
                     <td class="text-center col-2"><%= incidentlist[count].FullName %></td>
-                    <td class="text-center col-2"><%=incidentlist[count].Location %></td>
-                    <td class="col-4"><%= incidentlist[count].IncidentDescription %> </td>
-                    <td class="text-center col-2"><%= incidentlist[count].Witness %></td>
+                    <td class="text-center col-1"><%=incidentlist[count].Location %></td>
+                    <td class="text-center col-5"><%= incidentlist[count].IncidentDescription %> </td>
+                    <td class="text-center col-1"><%= incidentlist[count].Witness %></td>
                     <td class="text-center col-1">
                     <% if(typeof displayName == 'string' && displayName) {%>
                         <a href="/incident/edit/<%= incidentlist[count]._id%>"
@@ -49,11 +50,11 @@
                             class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>Delete
                     <% } else { %>
-                        <td class="text-center col-3"><%= incidentlist[count].DateofReport %></td>
+                        <td class="text-center col-2"><%= incidentlist[count].DateofReport %></td>
                         <td class="text-center col-2"><%= incidentlist[count].FullName %></td>
-                        <td class="text-center col-2"><%=incidentlist[count].Location %></td>
-                        <td class="col-4"><%= incidentlist[count].IncidentDescription %> </td>
-                        <td class="text-center col-2"><%= incidentlist[count].Witness %></td>
+                        <td class="text-center col-1"><%=incidentlist[count].Location %></td>
+                        <td class="text-center col-6"><%= incidentlist[count].IncidentDescription %> </td>
+                        <td class="text-center col-1"><%= incidentlist[count].Witness %></td>
                         <% } %>
                     </a>
                     </td>
