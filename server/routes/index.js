@@ -48,7 +48,7 @@ router.get('/login',function(req,res,next){
   if(!req.user)
   {
     res.render('Auth/login',{
-      title:'Login',
+      title:'login',
       message:req.flash('loginMessage'),
       displayName:req.user ? req.user.displayName:''
     })
@@ -84,7 +84,7 @@ router.get('/register',function(req,res,next){
   {
     res.render('Auth/register',
       {
-        title:'Register',
+        title:'register',
         message:req.flash('registerMessage'),
         displayName: req.user ? req.user.displayName:''
       }
@@ -112,7 +112,7 @@ router.post('/register',function(req,res,next){
       }
       return res.render('auth/register',
         {
-          title:'Register',
+          title:'register',
           message:req.flash('registerMessage'),
           displayName: req.user ? req.user.displayName:''
         })

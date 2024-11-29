@@ -21,7 +21,7 @@ Post,
 Put --> Edit/Update
 */
 /* Read Operation --> Get route for displaying the books list */
-router.get('/',requireAuth, async(req,res,next)=>{
+router.get('/', async(req,res,next)=>{
 try{
     const incidentlist = await incident.find();
     res.render('incident/list',{

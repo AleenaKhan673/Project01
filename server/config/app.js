@@ -52,6 +52,9 @@ app.set('view engine', 'ejs');
 
 //initialize the flash
 app.use(flash());
+// implement a User Authentication 
+passport.use(User.createStrategy());
+
 //searlize and deserialize the user information 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
