@@ -1,60 +1,81 @@
-<%- include ../Partials/header.ejs%>
-<%- include ../Partials/main_nav.ejs%>
-<%- include ../Partials/footer.ejs%>
+<%- include ../Partials/header.ejs %>
+<%- include ../Partials/main_nav.ejs %>
+
 <main class="container">
-    <!--Message Area-->
-    <% if(message.length > 0) {%>
-        <div class="alter alter-danger">
+    <!-- Message Area -->
+    <% if (message && message.length > 0) { %>
+        <div class="alert alert-danger">
             <%= message %>
-        </div>    
-    <%} %>
+        </div>
+    <% } %>
+
     <div class="row">
         <div class="offset-md-4 col-md-4">
             <h1>Please Register</h1>
-            <form method="post" autocomplete="off">
+            <form method="post" action="/register" autocomplete="off">
+                <!-- Username -->
                 <fieldset class="form-group">
-                    <!--username,password,displayName,email-->
-                    <label for="username"></label>
-                    <input type="text" clas="form-control"
-                    name="username"
-                    placeholder="Enter the username"
-                    id="username" required autofocus>
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="username"
+                        id="username"
+                        placeholder="Enter the username"
+                        required
+                        autofocus
+                    />
                 </fieldset>
+
+                <!-- Password -->
                 <fieldset class="form-group">
-                    <!--username,password,displayName,email-->
-                    <label for="password"></label>
-                    <input type="password" clas="form-control"
-                    name="password"
-                    placeholder="Enter the password"
-                    id="password" required>
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        id="password"
+                        placeholder="Enter the password"
+                        required
+                    />
                 </fieldset>
-                </form>
+
+                <!-- Email -->
                 <fieldset class="form-group">
-                    <!--username,password,displayName,email-->
-                    <label for="email"></label>
-                    <input type="email" clas="form-control"
-                    name="email"
-                    placeholder="Enter the email"
-                    id="email" required autofocus>
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        id="email"
+                        placeholder="Enter the email"
+                        required
+                    />
                 </fieldset>
+
+                <!-- Display Name -->
                 <fieldset class="form-group">
-                    <!--username,password,displayName,email-->
-                    <label for="displayName">
-                    <input type="text" clas="form-control"
-                    name="displayName"
-                    placeholder="Enter the displayName"
-                    id="displayName" required>
+                    <label for="displayName">Display Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="displayName"
+                        id="displayName"
+                        placeholder="Enter the display name"
+                        required
+                    />
                 </fieldset>
+
+                <!-- Submit and Cancel -->
                 <fieldset class="form-group text-right">
-                    <input type="submit" class="btn btn-success"
-                    value="Register">
+                    <input type="submit" class="btn btn-success" value="Register" />
                     <a href="/">
-                    <input type="button" class="btn btn-warning"
-                    value="Cancel">
+                        <input type="button" class="btn btn-warning" value="Cancel" />
                     </a>
                 </fieldset>
-              </form>
-            </div>
-
+            </form>
         </div>
-    </main>
+    </div>
+</main>
+
+<%- include ../Partials/footer.ejs %>

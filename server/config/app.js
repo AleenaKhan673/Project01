@@ -3,24 +3,22 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-let app = express();
-//create a user model instance
-let userModel = require('../model/user');
-let User = userModel.User;
-// getting-started.js
-let mongoose = require('mongoose');
-let DB = require('./db');
-
 let session = require('express-session');
 let passport = require('passport');
 let passportLocal = require('passport-local');
-passport.use(User.createStrategy());
 let localStrategy = passportLocal.Strategy;
 let flash = require('connect-flash');
-let indexRouter = require('../routes/index');
-let usersRouter = require('../routes/users');
-let incidentRouter = require('../routes/incident');
+let cors = require('cors')
 
+let app = express();
+
+//create a user model instance
+let UserModel = require('../model/user');
+let User = UserModel.User;
+
+// getting-started.js 
+let mongoose = require('mongoose');
+let DB = require('./db');
 // point mongoose to the DB URI
 mongoose.connect(DB.URI);
 let mongoDB = mongoose.connection;
@@ -37,30 +35,31 @@ app.use(session({
   resave:false
 }))
 
-/* main().catch(err => console.log(err));
-
-async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/BookLib');
-  //await mongoose.connect('mongodb+srv://ahmedsheikh:Test123@cluster0.0f3pz.mongodb.net/');
-
-  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
-}*/
-
-// view engine setup
-app.set('views', path.join(__dirname, '../views'));
-app.set('view engine', 'ejs');
-
-//initialize the flash
-app.use(flash());
-// implement a User Authentication 
+// implement user authentication
 passport.use(User.createStrategy());
 
 //searlize and deserialize the user information 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 //initialize the passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+//initialize the flash
+app.use(flash());
+
+
+let indexRouter = require('../routes/index');
+let usersRouter = require('../routes/users');
+let incidentRouter = require('../routes/incident');
+
+
+// view engine setup
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'ejs');
+
+
 //engine setup
 app.use(logger('dev'));
 app.use(express.json());
@@ -68,6 +67,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
