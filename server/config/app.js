@@ -10,12 +10,14 @@ let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
 let flash = require('connect-flash');
 let cors = require('cors')
-
+let indexRouter = require('../routes/index');
+let usersRouter = require('../routes/users');
+let incidentRouter = require('../routes/incident');
 let app = express();
 
 //create a user model instance
-let UserModel = require('../model/user');
-let User = UserModel.User;
+let UserModel = require('../model/user'); 
+let User = UserModel.User; 
 
 // getting-started.js 
 let mongoose = require('mongoose');
@@ -45,15 +47,11 @@ passport.deserializeUser(User.deserializeUser());
 
 //initialize the passport
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); 
 
 //initialize the flash
 app.use(flash());
 
-
-let indexRouter = require('../routes/index');
-let usersRouter = require('../routes/users');
-let incidentRouter = require('../routes/incident');
 
 
 // view engine setup

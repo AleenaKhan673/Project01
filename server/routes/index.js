@@ -1,10 +1,10 @@
+let UserModel = require('../model/user');
+let User = UserModel.User;
+var incidentModel = require('../model/incident');
 var express = require('express');
-var passport = require('passport');
-let DB = require('../config/db');
-let user = require("../model/user");
-let incidentModel = require('../model/incident');
 var router = express.Router();
-
+var passport = require('passport');
+let DB = require('../config/db'); 
 
 // Middleware to attach user info to all views
 router.use((req, res, next) => {
@@ -90,7 +90,7 @@ router.get('/register',function(req,res,next){
   }
 });
 router.post('/register',function(req,res,next){
-  let User = new User({
+  let newUser = new User({
     username: req.body.username,
     //password:req.body.password,
     email:req.body.email,
