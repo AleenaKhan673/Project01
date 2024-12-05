@@ -26,26 +26,14 @@ router.get('/home', function(req, res, next) {
 });
 /* GET about us page. */
 router.get('/aboutus', function(req, res, next) {
-  res.render('index', { 
+  res.render('about', { 
     title: 'About Us',
     displayName:req.user ? req.user.displayName:'' });
 });
-/* GET Product page. */
-router.get('/products', function(req, res, next) {
-  res.render('index', { 
-    title: 'Product',
-    displayName:req.user ? req.user.displayName:''
-   });
-});
-/* GET Services page. */
-router.get('/service', function(req, res, next) {
-  res.render('index', { 
-    title: 'Service',
-    displayName:req.user ? req.user.displayName:'' });
-});
+
 /* GET contact me page. */
 router.get('/contactus', function(req, res, next) {
-  res.render('index', { 
+  res.render('contact', { 
     title: 'Contact us',
     displayName:req.user ? req.user.displayName:'' });
 });
