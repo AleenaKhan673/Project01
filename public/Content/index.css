@@ -1,11 +1,26 @@
 html {
+    height: 100%;
+}
 
+body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(#2e2e30, #a5a1a1, #b1b1b1, #131219);
+    text-align: right;
 }
 
 h1{
-
+        font-family: "Bodoni Moda SC", serif;
+        font-size: 90px !important;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgb(175, 149, 149);
+        font-weight: 900;
 }
 
 h3 {
-    
+    font-family: serif;
+    font-size: 50px !important;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgb(175, 149, 149);
+    font-weight: 800;
 }
