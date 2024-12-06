@@ -1,6 +1,6 @@
 
 .img1 {
-    float: left;
+  float: left;
   width: 33.33%;
   padding: 5px;
 }
@@ -19,18 +19,42 @@
   clear: both;
   display: table;  
 }
-html {
 
+html {
+  height: 100%;
 }
 p{
-
+  font-family: serif;
+  font-size: 20px !important;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgb(175, 149, 149);
+  font-weight: 800;
 }
 h1{
-
+  font-family: "Bodoni Moda SC", serif;
+  font-size: 60px !important;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgb(175, 149, 149);
+  font-weight: 800;
 }
 h2{
-
+  font-family: "Bodoni Moda SC", serif;
+  font-size: 60px !important;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgb(175, 149, 149);
+  font-weight: 800;
 }
 h5{
+  font-family: serif;
+  font-size: 30px !important;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgb(175, 149, 149);
+  font-weight: 800;
+}
 
+body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(#2e2e30, #a5a1a1, #b1b1b1, #131219);
+  text-align: right;
 }
