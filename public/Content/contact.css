@@ -1,32 +1,21 @@
 
-.img1 {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
+.images{
+  display: flex;
 }
-.img2 {
-    float: left;
-    width: 33.33%;
-    padding: 5px;
-}
-.img3{
-    float: left;
-    width: 33.33%;
-    padding: 5px;
-}
-.row::after{
-  content: "";
-  clear: both;
-  display: table;  
+aside img {
+  max-width: 100%;
 }
 
 html {
   height: 100%;
 }
+body {
+  overflow: hidden; 
+}
+
 p{
   font-family: serif;
   font-size: 20px !important;
-  text-align: center;
   text-shadow: 2px 2px 4px rgb(175, 149, 149);
   font-weight: 800;
 }
