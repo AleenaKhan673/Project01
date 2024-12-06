@@ -5,7 +5,13 @@
 aside img {
   max-width: 100%;
 }
-
+.team-image {
+  width: 200px; 
+  height: auto; 
+  margin: 10px; 
+  border-radius: 8px; 
+  display: block; 
+}
 html {
   height: 100%;
 }
